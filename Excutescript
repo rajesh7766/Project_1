@@ -1,0 +1,4 @@
+select * from "MySchema"."CURRENCY_MASTER_2"
+select "MySchema"."FunUpdateCurrency"(4,'KSH','Inservice')
+select "MySchema"."FunInsertCurrency"(10,'KSH','Inservice')
+select "MySchema"."FunDeleteCurrency"(10)
