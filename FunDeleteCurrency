@@ -1,0 +1,25 @@
+-- FUNCTION: "MySchema"."FunDeleteCurrency"(bigint)
+
+-- DROP FUNCTION "MySchema"."FunDeleteCurrency"(bigint);
+
+CREATE OR REPLACE FUNCTION "MySchema"."FunDeleteCurrency"(
+	curr_id bigint)
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE 
+AS $BODY$
+
+begin
+delete from 
+"MySchema"."CURRENCY_MASTER_2"  
+where currency_id=curr_id;
+end;
+
+$BODY$;
+
+ALTER FUNCTION "MySchema"."FunDeleteCurrency"(bigint)
+    OWNER TO postgres;
+
+COMMENT ON FUNCTION "MySchema"."FunDeleteCurrency"(bigint)
+    IS 'Deleting Currency List from currency master table';
