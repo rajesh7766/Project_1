@@ -1,0 +1,18 @@
+-- Table: "MySchema"."CURRENCY_MASTER_2"
+
+-- DROP TABLE "MySchema"."CURRENCY_MASTER_2";
+
+CREATE TABLE "MySchema"."CURRENCY_MASTER_2"
+(
+    currency_id bigint NOT NULL,
+    currency character(10) COLLATE pg_catalog."default",
+    status character(10) COLLATE pg_catalog."default",
+    CONSTRAINT "CURRENCY_MASTER_2_pkey" PRIMARY KEY (currency_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE "MySchema"."CURRENCY_MASTER_2"
+    OWNER to postgres;
