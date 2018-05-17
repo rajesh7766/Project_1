@@ -1,0 +1,29 @@
+-- FUNCTION: "MySchema"."FunUpdateCurrency"(bigint, character, character)
+
+-- DROP FUNCTION "MySchema"."FunUpdateCurrency"(bigint, character, character);
+
+CREATE OR REPLACE FUNCTION "MySchema"."FunUpdateCurrency"(
+	curr_id bigint,
+	curr character,
+	stus character)
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE 
+AS $BODY$
+
+begin
+update "MySchema"."CURRENCY_MASTER_2" 
+set
+currency=curr,
+status=stus where 
+currency_id=curr_id;
+end;
+
+$BODY$;
+
+ALTER FUNCTION "MySchema"."FunUpdateCurrency"(bigint, character, character)
+    OWNER TO postgres;
+
+COMMENT ON FUNCTION "MySchema"."FunUpdateCurrency"(bigint, character, character)
+    IS 'Updating Currencies in currency master table';
