@@ -3,7 +3,6 @@
 -- DROP FUNCTION "MySchema"."FunInsertCurrency"(bigint, character, character);
 
 CREATE OR REPLACE FUNCTION "MySchema"."FunInsertCurrency"(
-	currency_id bigint,
 	currency character,
 	status character)
     RETURNS void
